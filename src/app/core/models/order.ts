@@ -12,7 +12,8 @@ export class Order implements OrderI { //valeur par défaut
   comment!:string;
   constructor(obj?:Partial<Order>) {
     if(obj) {
-      Object.assign(this, obj); //fusionner les attributs et écrasser les valeurs précédentes avec le nouvel objet
+      Object.assign(this, obj); //fusionner les attributs et écrasser les valeurs précédentes avec le nouvel objet -
+      //MERGE - Constructor merging the object passed as parameter with the current object.
     }
   }
 }
