@@ -7,6 +7,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrl: './page-list-orders.component.scss'
 })
 export class PageListOrdersComponent {
+  title:string = 'Zoxor';
   constructor(private ordersService: OrdersService){
     this.ordersService.collection.subscribe((orders) => {
       console.log('Orders : ', orders);
