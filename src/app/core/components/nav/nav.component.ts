@@ -8,7 +8,7 @@ import { VersionService } from '../../services/version.service';
 })
 export class NavComponent {
   constructor(private versionService: VersionService) {
-    console.log('nav nb : ', this.versionService.numVersion);
+    console.log('nav nb : ', this.versionService.numVersion$.value);
   }
 
   /*public*/ increment() {
