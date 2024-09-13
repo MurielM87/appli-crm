@@ -44,20 +44,20 @@ export class AppComponent {
 
   //Behaviour Subject - extension du comportement du subject - permet de se rattraper si retard
   //toujours initialiser nouveau subject
-  sub$ = new BehaviorSubject(Math.random());
-  constructor() {
-    //subscribe
-    this.sub$.subscribe((data) => {
-      console.log('a1', data);
-    });
-    //subscribe
-    this.sub$.subscribe((data) => {
-      console.log('a2', data);
-    });
-    this.sub$.next(Math.random());
-    //subscribe
-    this.sub$.subscribe((data) => {
-      console.log('a3', data);
-    });
-  }
+  // sub$ = new BehaviorSubject(Math.random());
+  // constructor() {
+  //   //subscribe
+  //   this.sub$.subscribe((data) => {
+  //     console.log('a1', data);
+  //   });
+  //   //subscribe
+  //   this.sub$.subscribe((data) => {
+  //     console.log('a2', data);
+  //   });
+  //   this.sub$.next(Math.random());
+  //   //subscribe
+  //   this.sub$.subscribe((data) => {
+  //     console.log('a3', data);
+  //   });
+  // }
 }
