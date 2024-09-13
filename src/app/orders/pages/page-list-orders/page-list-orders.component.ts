@@ -14,11 +14,11 @@ export class PageListOrdersComponent {
     })
   }
 
-  ngOnInit() {
-    console.log('voici ngOnInit ', this.title); //lors de l'initialisation
-  }
-  ngOnDestroy() {
-    console.log('bye bye'); //ou alert ou modal ou autre logique avant de quitter la page
-    //lorsqu'on veut libérer des ressources à la destruction des composants
-  }
+  // ngOnInit() {
+  //   console.log('voici ngOnInit ', this.title); //lors de l'initialisation
+  // }
+  // ngOnDestroy() {
+  //   console.log('bye bye'); //ou alert ou modal ou autre logique avant de quitter la page
+  //   //lorsqu'on veut libérer des ressources à la destruction des composants
+  // }
 }
