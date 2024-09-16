@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
+import { Order } from '../../../core/models/order';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -7,10 +8,16 @@ import { OrdersService } from '../../services/orders.service';
   styleUrl: './page-list-orders.component.scss'
 })
 export class PageListOrdersComponent {
-  title:string = 'Zoxor';
+  title:string = 'Orders List';
+  headers:string[] = [
+    'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'
+  ];
+  collection!:Order[]; //une collection qui va stocker un tableau d'objets orders
+
   constructor(private ordersService: OrdersService){
     this.ordersService.collection.subscribe((orders) => {
-      console.log('Orders : ', orders);
+      //console.log('Orders : ', orders);
+      this.collection = orders;
     })
   }
 
