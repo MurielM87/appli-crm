@@ -28,4 +28,13 @@ export class PageListOrdersComponent {
   //   console.log('bye bye'); //ou alert ou modal ou autre logique avant de quitter la page
   //   //lorsqu'on veut libérer des ressources à la destruction des composants
   // }
+
+  //methode pour calculer values
+  // public total(val:number, coef:number, tva?:number):number { //angular peut deviner la nature de la valeur à retourner (dont :number pas obligatoire)
+  //   if(tva) return val * coef * (1 + tva / 100);
+  //   return val * coef;
+  // }
+  //dans template html
+  // <td>{{total(item.tjmHt, item.nbJours)}}</td>
+  // <td>{{total(item.tjmHt, item.nbJours, item.tva)}}</td>
 }
