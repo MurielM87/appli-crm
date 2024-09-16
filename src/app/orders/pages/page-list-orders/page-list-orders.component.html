@@ -1,4 +1,4 @@
-<app-template-full-width [title]="title">
+<app-template-full-width [title]="title" *ngIf="collection">
   <app-table-light
     [collection]="collection"
     [headers]="headers">
