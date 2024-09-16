@@ -15,11 +15,11 @@ export class TableLightComponent {
   //   console.log('collections', this.collection);
   //   console.log('header : ', this.headers);
   // }
-  ngOnChanges(): void {
-    console.log('ngOnChanges()\n=============');
-    console.log('collections', this.collection);
-    console.log('header : ', this.headers);
-  }
+  // ngOnChanges(): void {
+  //   console.log('ngOnChanges()\n=============');
+  //   console.log('collections', this.collection);
+  //   console.log('header : ', this.headers);
+  // }
   // ngOnInit(): void {
   //   console.log('ngOnInit()\n=============');
   //   console.log('collections', this.collection);
