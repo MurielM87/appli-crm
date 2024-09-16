@@ -18,8 +18,8 @@ export class FooterComponent {
   constructor(private versionService: VersionService) {}
   ngOnInit() {
     this.versionService.numVersion$.subscribe((value) => {
-     console.log('value', value);
-     console.log('footer nb : ', this.versionService.numVersion$.value);
+    //  console.log('value', value);
+    //  console.log('footer nb : ', this.versionService.numVersion$.value);
      //this.currentVersion = this.versionService.numVersion$.value;
      this.currentVersion = value;
     });

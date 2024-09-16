@@ -19,8 +19,8 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.versionService.numVersion$.subscribe((value) => {
-     console.log('value', value);
-     console.log('header nb : ', this.versionService.numVersion$.value);
+    //  console.log('value', value);
+    //  console.log('header nb : ', this.versionService.numVersion$.value);
      //this.currentVersion = this.versionService.numVersion$.value;
      this.currentVersion = value;
     });
