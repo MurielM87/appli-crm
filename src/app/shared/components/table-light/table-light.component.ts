@@ -7,7 +7,6 @@ import { Order } from '../../../core/models/order';
   styleUrl: './table-light.component.scss'
 })
 export class TableLightComponent {
-  @Input() collection!: Order[];
   @Input() headers!: string[];
 
   // constructor() {
