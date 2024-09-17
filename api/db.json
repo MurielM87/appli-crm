@@ -5,7 +5,7 @@
       "tjmHt": 1200,
       "nbJours": 20,
       "tva": 20,
-      "state": "OPTION",
+      "state": "CONFIRMED",
       "typePresta": "formation",
       "client": "Capgemini",
       "comment": "Merci Cap pour les 24k"
@@ -21,14 +21,14 @@
       "id": 2
     },
     {
+      "id": 3,
       "tjmHt": 900,
       "nbJours": 15,
       "tva": 20,
-      "state": "CONFIRMED",
+      "state": "OPTION",
       "typePresta": "audit",
       "client": "Sopra Steria",
-      "comment": "Audit des systèmes",
-      "id": 3
+      "comment": "Audit des systèmes"
     },
     {
       "tjmHt": 1500,

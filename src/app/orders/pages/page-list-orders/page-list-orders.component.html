@@ -10,7 +10,11 @@
       <td>{{item.tjmHt | currency}}</td>
       <td>{{item | total | currency}}</td>
       <td>{{item | total: true | currency}}</td> <!--car tva boolean-->
-      <td>
+      <td [ngClass]="{
+        'state-canceled' : item.state==='CANCELED',
+        'state-option' : item.state==='OPTION',
+        'state-confirmed' : item.state==='CONFIRMED'
+      }">
         <select (change)="changeStatus(item, $event)">
           <option *ngFor="let state of status"
                   [selected]="state===item.state"
