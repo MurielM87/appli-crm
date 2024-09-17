@@ -11,7 +11,7 @@
       <td>{{item | total | currency}}</td>
       <td>{{item | total: true | currency}}</td> <!--car tva boolean-->
       <td>
-        <select>
+        <select (change)="changeStatus(item, $event)">
           <option *ngFor="let state of status"
                   [selected]="state===item.state"
                   [value]="state"

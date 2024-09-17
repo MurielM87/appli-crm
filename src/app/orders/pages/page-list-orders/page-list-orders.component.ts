@@ -10,6 +10,7 @@ import { StatusOrder } from '../../../core/enums/status-order.enum';
   styleUrl: './page-list-orders.component.scss'
 })
 export class PageListOrdersComponent {
+
   title:string = 'Orders List';
   headers:string[] = [
     'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'
@@ -19,6 +20,13 @@ export class PageListOrdersComponent {
 
   constructor(private ordersService: OrdersService){
     this.collection$ = this.ordersService.collection;
+  }
+
+  changeStatus(item: Order,$event: any) {
+    const status = $event.target.value;
+    this.ordersService.changeStatus(item, status).subscribe(data => {
+      item=data;
+    });
   }
 
   // ngOnInit() {
