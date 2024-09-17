@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { Order } from '../../../core/models/order';
 import { Observable } from 'rxjs';
+import { StatusOrder } from '../../../core/enums/status-order.enum';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -14,6 +15,7 @@ export class PageListOrdersComponent {
     'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'
   ];
   collection$!: Observable<Order[]>; //une collection qui va stocker un tableau d'objets orders
+  status=Object.values(StatusOrder);
 
   constructor(private ordersService: OrdersService){
     this.collection$ = this.ordersService.collection;
