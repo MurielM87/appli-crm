@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { provideHttpClient } from '@angular/common/http';
@@ -9,7 +9,9 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, CoreModule],
-  providers: [provideHttpClient()], //pour tous les services injectés - instanciés au démarrage de l'application cf @Injectable
+  providers: [provideHttpClient(),//pour tous les services injectés - instanciés au démarrage de l'application cf @Injectable
+    {provide:DEFAULT_CURRENCY_CODE, useValue: 'EUR'}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
