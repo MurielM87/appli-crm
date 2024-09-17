@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { Order } from '../../../core/models/order';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -12,13 +13,10 @@ export class PageListOrdersComponent {
   headers:string[] = [
     'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'
   ];
-  collection!:Order[]; //une collection qui va stocker un tableau d'objets orders
+  collection$!: Observable<Order[]>; //une collection qui va stocker un tableau d'objets orders
 
   constructor(private ordersService: OrdersService){
-    this.ordersService.collection.subscribe((orders) => {
-      //console.log('Orders : ', orders);
-      this.collection = orders;
-    })
+    this.collection$ = this.ordersService.collection;
   }
 
   // ngOnInit() {

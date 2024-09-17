@@ -9,4 +9,7 @@ export interface OrderI {
   typePresta: string;
   client: string;
   comment: string;
+  //ajout de methodes - methodes d'instance
+  totalHT(): number; //car retourne un nombre
+  totalTTC(): number;
 }

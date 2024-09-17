@@ -16,4 +16,10 @@ export class Order implements OrderI { //valeur par défaut
       //MERGE - Constructor merging the object passed as parameter with the current object.
     }
   }
+  totalHT(): number {
+      return this.tjmHt * this.nbJours;
+  }
+  totalTTC(): number {
+      return this.totalHT() * (1 + this.tva / 100);
+  }
 }
