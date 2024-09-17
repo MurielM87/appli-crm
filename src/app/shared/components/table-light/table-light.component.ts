@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Order } from '../../../core/models/order';
 
 @Component({
   selector: 'app-table-light',
