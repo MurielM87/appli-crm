@@ -11,14 +11,14 @@
       "comment": "Merci Cap pour les 24k"
     },
     {
+      "id": 2,
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "CANCELED",
+      "state": "CONFIRMED",
       "typePresta": "formation",
       "client": "Modis",
-      "comment": "Formation annulée",
-      "id": 2
+      "comment": "Formation annulée"
     },
     {
       "id": 3,
@@ -31,14 +31,14 @@
       "comment": "Audit des systèmes"
     },
     {
+      "id": 4,
       "tjmHt": 1500,
       "nbJours": 8,
       "tva": 20,
-      "state": "CONFIRMED",
+      "state": "CANCELED",
       "typePresta": "consulting",
       "client": "Alten",
-      "comment": "Consulting pour un projet clé",
-      "id": 4
+      "comment": "Consulting pour un projet clé"
     },
     {
       "tjmHt": 1300,
