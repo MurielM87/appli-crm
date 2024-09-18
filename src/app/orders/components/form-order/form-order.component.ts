@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { Order } from '../../../core/models/order';
 import { StatusOrder } from '../../../core/enums/status-order.enum';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
@@ -13,7 +13,8 @@ export class FormOrderComponent {
   @Input() init!:Order;
   @Output() submitted= new EventEmitter<Order>(); //emet un évenement dans une methode
   form!: FormGroup;
-  constructor(private fb:FormBuilder) {}
+  private fb: FormBuilder = Inject(FormBuilder);
+  //constructor(private fb:FormBuilder) {}
 
   ngOnInit() {
     this.form = this.fb.group({
