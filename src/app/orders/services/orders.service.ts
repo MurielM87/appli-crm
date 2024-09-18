@@ -1,4 +1,3 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
@@ -35,6 +34,10 @@ export class  OrdersService {
     return this.update(obj);
   }
 
+  getById(id: number): Observable<Order> {
+    return this.http.get<Order>(`${this.urlApi}/orders/${id}`);
+  }
+
   public update(item:Order):Observable<Order> {
     return this.http.put<Order>(`${this.urlApi}/orders/${item.id}`, item)
   }
@@ -42,4 +45,9 @@ export class  OrdersService {
   public add(item:Order):Observable<Order> { //aussi <any> en fonction de l'api ou rien (add(item:Order {return this.http.post(API-URL)}))
     return this.http.post<Order>(`${this.urlApi}/orders`, item);
   }
+
+  public delete(item: Order): Observable<void> {
+    return this.http.delete<void>(`${this.urlApi}/orders/${item.id}`);
+  }
+
 }

@@ -1,1 +1,6 @@
-<p>page-edit-order works!</p>
+<app-template-container title="Modify Order">
+  <app-form-order
+  [init]="item"
+  (submitted)="handleSubmit($event)"
+  ></app-form-order>
+</app-template-container>

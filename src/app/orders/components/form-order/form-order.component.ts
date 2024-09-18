@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { Order } from '../../../core/models/order';
 import { StatusOrder } from '../../../core/enums/status-order.enum';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
@@ -13,30 +13,45 @@ export class FormOrderComponent {
   @Input() init!:Order;
   @Output() submitted= new EventEmitter<Order>(); //emet un évenement dans une methode
   form!: FormGroup;
-  private fb: FormBuilder = Inject(FormBuilder);
+  private fb: FormBuilder = inject(FormBuilder);
+
   //constructor(private fb:FormBuilder) {}
 
+  // Utiliser ngOnChanges pour détecter les changements dans @Input()
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['init'] && changes['init'].currentValue) {
+      this.initializeForm(changes['init'].currentValue); // Initialiser le formulaire avec les nouvelles données
+    }
+  }
+
   ngOnInit() {
+    this.initializeForm(this.init); // Initialisez le formulaire une fois lors de la création du composant
+  }
+
+
+  // Méthode pour initialiser le formulaire avec des valeurs
+  initializeForm(order: Order) {
     this.form = this.fb.group({
-      tjmHt: [this.init.tjmHt],
-      nbJours: [this.init.nbJours],
-      tva: [this.init.tva],
-      state : [this.init.state],
+      tjmHt: [order.tjmHt],
+      nbJours: [order.nbJours],
+      tva: [order.tva],
+      state: [order.state],
       client: [
-        this.init.client,
+        order.client,
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(20)
-        ]
+          Validators.maxLength(20),
+        ],
       ],
-      comment: [this.init.comment],
-      typePresta: [this.init.typePresta, Validators.required],
-      id: [this.init.id]
+      comment: [order.comment],
+      typePresta: [order.typePresta, Validators.required],
+      id: [order.id],
     });
   }
 
   submit() {
     this.submitted.emit(this.form.value);
   }
+
 }

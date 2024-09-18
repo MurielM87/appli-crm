@@ -3,7 +3,12 @@
   *ngIf="collection$|async as myCollection"
 >
   <app-table-light [headers]="headers">
-    <tr *ngFor="let item of myCollection">
+    @for(item of myCollection; track item.id) {
+    <tr>
+      <td>
+        <app-icon-edit [routerLink]="['/orders/edit', item.id]"></app-icon-edit>
+        <app-icon-delete (click)="deleteOrder(item, $event)"></app-icon-delete>
+      </td>
       <td>{{item.typePresta}}</td>
       <td>{{item.client}}</td>
       <td>{{item.nbJours}}</td>
@@ -12,13 +17,20 @@
       <td>{{item | total: true | currency}}</td> <!--car tva boolean-->
       <td [appState]="item.state">
         <select (change)="changeStatus(item, $event)">
-          <option *ngFor="let state of status"
+          @for (state of status; track state) {
+            <option
                   [selected]="state===item.state"
                   [value]="state"
-          >{{state}}</option>
+            >{{state}}</option>
+          }
+
         </select>
       </td>
     </tr>
+    } @empty {
+      <div>la liste est vide</div>
+    }
+
   </app-table-light>
   <app-btn label="Add order" route="add"></app-btn>
 </app-template-full-width>
