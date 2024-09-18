@@ -151,7 +151,7 @@
       "comment": "Client important pour le support technique"
     },
     {
-      "state": "ACTIVE",
+      "state": "INACTIVE",
       "tva": 20,
       "id": 7,
       "name": "Altran",
