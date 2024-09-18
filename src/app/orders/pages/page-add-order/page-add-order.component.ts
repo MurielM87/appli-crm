@@ -17,7 +17,7 @@ export class PageAddOrderComponent {
     //creer un order dans la BDD
     this.ordersService.add(item).subscribe(() => {
     //faire une redirection vers la page orders list (cf subscribe - le service fait l'appel au reseau )
-    this.router.navigate(['/orders']);
+    this.router.navigate(['orders']);
     })
 
   }

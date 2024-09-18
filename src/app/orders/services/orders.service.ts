@@ -39,7 +39,7 @@ export class  OrdersService {
     return this.http.put<Order>(`${this.urlApi}/orders/${item.id}`, item)
   }
 
-  public add(item:Order):Observable<Order> {
+  public add(item:Order):Observable<Order> { //aussi <any> en fonction de l'api ou rien (add(item:Order {return this.http.post(API-URL)}))
     return this.http.post<Order>(`${this.urlApi}/orders`, item);
   }
 }
