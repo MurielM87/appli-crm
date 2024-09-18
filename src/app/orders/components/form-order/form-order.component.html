@@ -7,6 +7,9 @@
       formControlName="typePresta"
       id="typePresta"
     />
+    <div class="alert alert-danger"
+        *ngIf="form.controls['typePresta'].invalid && form.controls['typePresta'].touched"
+    >Champ invalide</div>
   </div>
 
   <div class="form-group">
@@ -17,6 +20,9 @@
       formControlName="client"
       id="client"
     />
+    <div class="alert alert-danger"
+        *ngIf="form.controls['client'].invalid && form.controls['client'].touched"
+    >Champ invalide</div>
   </div>
 
   <div class="form-group">

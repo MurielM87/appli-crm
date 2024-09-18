@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Order } from '../../../core/models/order';
 import { StatusOrder } from '../../../core/enums/status-order.enum';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-form-order',
@@ -21,9 +21,16 @@ export class FormOrderComponent {
       nbJours: [this.init.nbJours],
       tva: [this.init.tva],
       state : [this.init.state],
-      client: [this.init.client],
+      client: [
+        this.init.client,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(20)
+        ]
+      ],
       comment: [this.init.comment],
-      typePresta: [this.init.typePresta],
+      typePresta: [this.init.typePresta, Validators.required],
       id: [this.init.id]
     });
   }
