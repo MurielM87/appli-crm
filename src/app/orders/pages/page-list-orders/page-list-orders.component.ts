@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { Order } from '../../../core/models/order';
 import { Observable } from 'rxjs';
@@ -17,8 +17,14 @@ export class PageListOrdersComponent {
   ];
   collection$!: Observable<Order[]>; //une collection qui va stocker un tableau d'objets orders
   status=Object.values(StatusOrder);
+  private ordersService: OrdersService = Inject(OrdersService);
 
-  constructor(private ordersService: OrdersService){
+  //ancienne syntaxe
+  // constructor(private ordersService: OrdersService){
+  //   this.collection$ = this.ordersService.collection;
+  // }
+
+  ngOnInit() {
     this.collection$ = this.ordersService.collection;
   }
 

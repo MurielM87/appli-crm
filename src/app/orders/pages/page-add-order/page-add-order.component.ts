@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Order } from '../../../core/models/order';
 import { OrdersService } from '../../services/orders.service';
 import { Router } from '@angular/router';
@@ -10,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class PageAddOrderComponent {
   item=new Order();
+  private ordersService: OrdersService = Inject(OrdersService);
+  private router: Router = Inject(Router);
 
-  constructor(private ordersService:OrdersService, private router: Router) {}
+  //ancienne syntaxe
+  //constructor(private ordersService:OrdersService, private router: Router) {}
 
   handleSubmit(item:Order) {
     //creer un order dans la BDD
