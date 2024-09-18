@@ -45,4 +45,7 @@ export class ClientsService {
     return this.http.delete<void>(`${this.urlApi}/clients/${item.id}`);
   }
 
+  public getAll(): Observable<Client[]> {
+    return this.http.get<Client[]>(`${this.urlApi}/clients`);
+  }
 }

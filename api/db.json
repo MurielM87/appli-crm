@@ -89,6 +89,16 @@
       "comment": null,
       "typePresta": "Coaching",
       "id": 9
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 3,
+      "tva": 20,
+      "state": "OPTION",
+      "client": "Modis",
+      "comment": null,
+      "typePresta": "coaching",
+      "id": 10
     }
   ],
   "clients": [

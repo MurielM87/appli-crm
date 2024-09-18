@@ -2,6 +2,8 @@ import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@
 import { Order } from '../../../core/models/order';
 import { StatusOrder } from '../../../core/enums/status-order.enum';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Client } from '../../../core/models/client';
+import { ClientsService } from '../../../clients/services/clients.service';
 
 @Component({
   selector: 'app-form-order',
@@ -11,12 +13,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class FormOrderComponent {
   status=Object.values(StatusOrder);
   @Input() init!:Order;
+  @Input() clients: Client[] = [];
   @Output() submitted= new EventEmitter<Order>(); //emet un évenement dans une methode
   form!: FormGroup;
   private fb: FormBuilder = inject(FormBuilder);
+  private clientsService: ClientsService = inject(ClientsService);
 
   //constructor(private fb:FormBuilder) {}
 
+  ngOnInit() {
+    this.clientsService.getAll().subscribe((clients) => {
+      this.clients = clients;
+    })
+    this.initializeForm(this.init); // Initialisez le formulaire une fois lors de la création du composant
+  }
   // Utiliser ngOnChanges pour détecter les changements dans @Input()
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['init'] && changes['init'].currentValue) {
@@ -24,9 +34,6 @@ export class FormOrderComponent {
     }
   }
 
-  ngOnInit() {
-    this.initializeForm(this.init); // Initialisez le formulaire une fois lors de la création du composant
-  }
 
 
   // Méthode pour initialiser le formulaire avec des valeurs
