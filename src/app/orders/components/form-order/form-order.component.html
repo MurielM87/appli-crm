@@ -67,5 +67,5 @@
     ></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
 </form>
