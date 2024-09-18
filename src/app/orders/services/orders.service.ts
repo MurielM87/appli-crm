@@ -38,4 +38,8 @@ export class  OrdersService {
   public update(item:Order):Observable<Order> {
     return this.http.put<Order>(`${this.urlApi}/orders/${item.id}`, item)
   }
+
+  public add(item:Order):Observable<Order> {
+    return this.http.post<Order>(`${this.urlApi}/orders`, item);
+  }
 }

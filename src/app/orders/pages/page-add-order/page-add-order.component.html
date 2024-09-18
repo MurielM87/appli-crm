@@ -1,4 +1,7 @@
 <app-template-container title="Add Order">
-  <app-form-order [init]="item"></app-form-order>
+  <app-form-order
+    [init]="item"
+    (submitted)="handleSubmit($event)"
+  ></app-form-order>
 </app-template-container>
 
