@@ -99,6 +99,16 @@
       "comment": null,
       "typePresta": "coaching",
       "id": 10
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 10,
+      "tva": 20,
+      "state": "OPTION",
+      "client": "Google France",
+      "comment": null,
+      "typePresta": "apprentissage",
+      "id": 11
     }
   ],
   "clients": [
@@ -157,6 +167,22 @@
       "name": "Altran",
       "totalCaHt": 14000,
       "comment": "Client avec de fortes demandes en formation"
+    },
+    {
+      "name": "Google France",
+      "totalCaHt": "30",
+      "tva": 20,
+      "comment": null,
+      "state": "ACTIVE",
+      "id": 8
+    },
+    {
+      "name": "Enterprise WA",
+      "totalCaHt": "1000000",
+      "tva": 20,
+      "comment": null,
+      "state": "ACTIVE",
+      "id": 9
     }
   ]
 }

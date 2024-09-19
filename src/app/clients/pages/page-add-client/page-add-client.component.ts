@@ -2,6 +2,7 @@ import { ClientsService } from './../../services/clients.service';
 import { Component, inject } from '@angular/core';
 import { Client } from '../../../core/models/client';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-page-add-client',
@@ -14,8 +15,36 @@ export class PageAddClientComponent {
   private router: Router = inject(Router);
 
   handleSubmit(item:Client) {
-    this.clientsService.add(item).subscribe(() => {
-      this.router.navigate(['clients']);
-    })
+    Swal.fire({
+      title: 'Add Client?',
+      imageUrl: 'addClient.jfif',
+      imageWidth: 300,
+      imageHeight: 300,
+      imageAlt: 'Custom image',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, for sure!',
+      cancelButtonText: 'No, thanks',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si l'utilisateur confirme, on ajoute l'ordre dans la base de données
+        this.clientsService.add(item).subscribe({
+          complete: () => {
+            this.router.navigate(['/clients']);
+          },
+          error: (error) => {
+            Swal.fire('Erreur', "Erreur lors de l'ajout du client", 'error');
+            console.error("Erreur lors de l'ajout du client", error);
+          },
+        });
+      }
+    });
   }
 }

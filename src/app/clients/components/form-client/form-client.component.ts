@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { StatusClient } from '../../../core/enums/status-client.enum';
 import { Client } from '../../../core/models/client';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-client',
@@ -27,7 +27,14 @@ export class FormClientComponent {
 
   initializeForm(client:Client) {
     this.form = this.fb.group({
-      name: [client.name],
+      name: [
+        client.name,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ],
+      ],
       totalCaHt: [client.totalCaHt],
       tva: [client.tva],
       comment: [client.comment],

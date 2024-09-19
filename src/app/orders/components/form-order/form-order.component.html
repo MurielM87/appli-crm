@@ -7,23 +7,23 @@
       formControlName="typePresta"
       id="typePresta"
     />
-    <div class="alert alert-danger"
-        *ngIf="form.controls['typePresta'].invalid && form.controls['typePresta'].touched"
-    >Champ invalide</div>
+    @if (form.controls['typePresta'].invalid && form.controls['typePresta'].touched) {
+      <div class="alert alert-danger">Champ invalide.</div>
+    }
   </div>
 
   <div class="form-group">
     <label for="client">Client</label>
     <select class="form-control" formControlName="client" id="client">
-      <option *ngFor="let client of clients" [value]="client.name">
-        {{ client.name }}
-      </option>
+      @for (client of clients; track client.name) {
+        <option [value]="client.name">
+          {{ client.name }}
+        </option>
+        }
     </select>
-    <div
-      class="alert alert-danger"
-      *ngIf="form.controls['client'].invalid && form.controls['client'].touched"
-    >Sélectionnez un client dans la liste
-    </div>
+    @if (form.controls['client'].invalid && form.controls['client'].touched) {
+      <div class="alert alert-danger">Champ invalide.</div>
+      }
   </div>
 
   <div class="form-group">
@@ -54,7 +54,9 @@
   <div class="form-group">
     <label for="state">state</label>
     <select class="form-control" id="state" formControlName="state">
-      <option *ngFor="let state of status" [value]="state">{{ state }}</option>
+      @for (state of status; track state) {
+        <option [value]="state">{{ state }}</option>
+        }
     </select>
   </div>
 
