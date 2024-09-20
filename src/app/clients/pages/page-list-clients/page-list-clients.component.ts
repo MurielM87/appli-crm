@@ -57,7 +57,7 @@ export class PageListClientsComponent {
         this.clientsService.delete(item).subscribe(() => {
           // Rafraîchir la collection après suppression
           this.collection$ = this.clientsService.collection;
-          const element = document.getElementById(`order-${item.id}`);
+          const element = document.getElementById(`client-${item.id}`);
           if (element) {
             element.remove();
           }

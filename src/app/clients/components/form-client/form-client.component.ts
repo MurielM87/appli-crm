@@ -28,12 +28,7 @@ export class FormClientComponent {
   initializeForm(client:Client) {
     this.form = this.fb.group({
       name: [
-        client.name,
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(20),
-        ],
+        client.name,Validators.required
       ],
       totalCaHt: [client.totalCaHt],
       tva: [client.tva],

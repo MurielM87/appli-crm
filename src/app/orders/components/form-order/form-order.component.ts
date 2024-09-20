@@ -22,7 +22,7 @@ export class FormOrderComponent {
   //constructor(private fb:FormBuilder) {}
 
   ngOnInit() {
-    this.clientsService.getAll().subscribe((clients) => {
+    this.clientsService.collection.subscribe((clients) => {
       this.clients = clients;
     })
     this.initializeForm(this.init); // Initialisez le formulaire une fois lors de la création du composant
